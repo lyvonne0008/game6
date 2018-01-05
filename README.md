@@ -32,3 +32,6 @@
 
 ![遊戲畫面](image.png)
 
+# PPT：
+
+![PPT](手遊.pptx)
