@@ -1,4 +1,7 @@
 
+-- 參考CORONA範例程式，進行更改
+
+
 -- Hide Status Bar
 display.setStatusBar(display.HiddenStatusBar)
 
@@ -25,7 +28,7 @@ local gameView
 
 -- Variables
 local moveSpeed = 2
-local lives = 5
+local lives = 5  -- 生命值(3->5)
 local score = 0
 local blockTimer
 local liveTimer
@@ -45,7 +48,7 @@ local update = {}
 local collisionHandler = {}
 local showAlert = {}
 
--- addTitleView
+-- addTitleView   -- 更改封面及人物
 function addTitleView()
 	bg = display.newImage('images/bg.png')
 	title = display.newImage('images/titleBg.png')
@@ -74,7 +77,7 @@ function gameView()
 	                                       titleView = nil 
 	                                       addInitialBlocks(5)
 	                                     end})
-	-- Score Text
+	-- Score Text -- 更改字體顏色
 	scoreTF = display.newText('0', 290, 22, system.nativeFont, 25)
 	scoreTF:setTextColor(255, 228, 225)
 	-- Lives Text
@@ -110,7 +113,7 @@ end
 -- Accelerometer
 function movePlayer:accelerometer(e)
 	-- Accelerometer Movement
-		player.x = display.contentCenterX + (display.contentCenterX * (e.xGravity*4))
+		player.x = display.contentCenterX + (display.contentCenterX * (e.xGravity*4)) -- 重力變四倍
 	-- Left Border
 	if((player.x - player.width * 0.5) < 0) then
 		player.x = player.width * 0.5
@@ -198,9 +201,9 @@ function update(e)
 	if(lives < 0) then
 	  showAlert()
 	end
-	-- Levels 
+	-- Levels  -- 難度門檻變高(500->600)
 	if(score > 600 and score < 602) then
-		moveSpeed = 3
+		moveSpeed = 3   -- 移動速度變快
 	end
 end
 
